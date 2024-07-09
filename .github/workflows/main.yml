@@ -18,7 +18,8 @@ jobs:
         with:
           payload: |
             {
-              "link": "https://muryoimpl.com"
+              "link": "[なんか書いていこうぜー.com](https://muryoimpl.com)",
+              "pr_url": "${{ github.event.pull_request.html_url }}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
