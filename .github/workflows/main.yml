@@ -1,0 +1,24 @@
+name: test
+
+on:
+  pull_request:
+    paths:
+      - 'db/migrate/*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    environment: actions
+
+    steps:
+      - name: notify
+        id: slack
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          payload: |
+            {
+              "link": "https://muryoimpl.com"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
